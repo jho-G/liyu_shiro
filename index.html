@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="am">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#4b2414">
+  <title>Food Menu | እንኳን ደህና መጡ</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            coffee: "#4b2414",
+            orange: "#d95d1f",
+            cream: "#fffaf5"
+          },
+          fontFamily: {
+            amharic: ["Noto Sans Ethiopic", "Arial", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Ethiopic:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-coffee text-white font-amharic">
+  <main class="min-h-screen overflow-hidden">
+    <!-- Decorative shapes -->
+    <div class="decor decor-one"></div>
+    <div class="decor decor-two"></div>
+
+    <!-- Header -->
+    <header class="relative z-10 px-5 pt-10 pb-5 sm:px-8 lg:px-12">
+      <div class="mx-auto max-w-7xl text-center">
+        <p class="mb-2 text-sm font-semibold tracking-[0.35em] text-orange-200 uppercase">
+          እንኳን ደህና መጡ
+        </p>
+        <h1 class="menu-title font-black uppercase">FOOD MENU</h1>
+        <p class="mt-2 text-lg sm:text-2xl font-semibold">እንኳን ደህና መጡ</p>
+      </div>
+    </header>
+
+    <!-- Main -->
+    <section class="relative z-10 mx-auto max-w-7xl px-5 pb-12 sm:px-8 lg:px-12">
+      <!-- Mobile controls -->
+      <div class="mb-6 flex flex-col gap-3 md:hidden">
+        <button id="mobileCategoryBtn"
+          class="flex items-center justify-between rounded-2xl bg-orange px-5 py-4 text-lg font-bold shadow-lg">
+          <span id="mobileCategoryLabel">ምግቦች</span>
+          <span class="rounded-xl bg-white p-2 text-coffee">
+            <svg id="mobileChevron" width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </button>
+
+        <div id="mobileCategoryMenu" class="hidden rounded-2xl bg-white p-2 text-coffee shadow-xl">
+          <button class="category-btn active" data-category="food">ምግቦች</button>
+          <button class="category-btn" data-category="drinks">መጠጦች</button>
+        </div>
+      </div>
+
+      <div class="grid items-start gap-8 lg:grid-cols-[1fr_0.82fr_1fr]">
+
+        <!-- LEFT MENU -->
+        <section class="order-2 lg:order-1">
+          <div class="category-heading hidden md:flex">
+            <span>ምግቦች</span>
+            <button aria-label="Food category">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
+                <path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+
+          <div id="foodMenu" class="menu-list">
+            <!-- First food group -->
+            <article class="menu-group">
+              <div class="menu-item"><span>ቲማቲም</span><span>250 ብር</span></div>
+              <div class="menu-item"><span>ድንች ወጥ(ዘውትር ረቡዕ)</span><span>250 ብር</span></div>
+              <div class="menu-item"><span>ዳቦ ፍርፍር</span><span>180 ብር</span></div>
+              <div class="menu-item"><span>ፍርፍር</span><span>250 ብር</span></div>
+              <div class="menu-item"><span>ድርቆሽ ፍርፍር</span><span>290 ብር</span></div>
+              <div class="menu-item"><span>አገልግል. ሙሉ</span><span>550 ብር</span></div>
+              <div class="menu-item"><span>½ አገልግል</span><span>400 ብር</span></div>
+              <div class="menu-item"><span>ፉል</span><span>170 ብር</span></div>
+            </article>
+
+            <!-- Second food group -->
+            <article class="menu-group mt-7">
+              <div class="menu-item"><span>በየአይነት</span><span>290 ብር</span></div>
+              <div class="menu-item"><span>ሽሮ</span><span>250 ብር</span></div>
+              <div class="menu-item"><span>ስፔሻል ሽሮ</span><span>290 ብር</span></div>
+              <div class="menu-item"><span>ተጋቢኖ</span><span>290 ብር</span></div>
+              <div class="menu-item"><span>ፓስታ በስጎ</span><span>270 ብር</span></div>
+              <div class="menu-item"><span>ፓስታ በአትክልት</span><span>290 ብር</span></div>
+              <div class="menu-item"><span>ስፔሻል ፓስታ</span><span>370 ብር</span></div>
+              <div class="menu-item"><span>ተልባ ፍትፍት</span><span>290 ብር</span></div>
+              <div class="menu-item"><span>ሱፍ ፍትፍት</span><span>290 ብር</span></div>
+              <div class="menu-item"><span>ሀፍሀፍ</span><span>290 ብር</span></div>
+            </article>
+          </div>
+        </section>
+
+        <!-- CENTER IMAGES / CTA -->
+        <section class="order-1 flex flex-col items-center lg:order-2">
+          <div class="food-image-wrap">
+            <img src="assets/food-1.jpeg" alt="Food from the menu" class="food-image">
+          </div>
+
+          <div class="food-image-wrap mt-5">
+            <img src="assets/food-2.jpeg" alt="Food from the menu" class="food-image">
+          </div>
+
+          <a href="tel:0960174018"
+             class="call-card mt-5 w-full max-w-md transition hover:-translate-y-1">
+            <div class="call-top">
+              <span class="call-icon">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 5.18 2 2 0 0 1 4.11 3h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.63a2 2 0 0 1-.45 2.11L8 10.73a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.85.29 1.73.5 2.63.62A2 2 0 0 1 22 16.92Z"
+                    stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              <span class="text-2xl font-semibold tracking-wide">0960-17-40-18</span>
+            </div>
+            <p>ደውለው ማዘዝ ከፈለጉ</p>
+          </a>
+        </section>
+
+        <!-- RIGHT MENU -->
+        <section class="order-3">
+          <div class="category-heading">
+            <span>ምግቦች</span>
+            <button aria-label="Food category">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
+                <path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+
+          <div class="menu-list">
+            <div class="menu-item"><span>ቲማቲም</span><span>250 ብር</span></div>
+            <div class="menu-item"><span>ድንች ወጥ(ዘውትር ረቡዕ)</span><span>250 ብር</span></div>
+            <div class="menu-item"><span>ዳቦ ፍርፍር</span><span>180 ብር</span></div>
+            <div class="menu-item"><span>ፍርፍር</span><span>250 ብር</span></div>
+            <div class="menu-item"><span>ድርቆሽ ፍርፍር</span><span>290 ብር</span></div>
+            <div class="menu-item"><span>አገልግል. ሙሉ</span><span>550 ብር</span></div>
+            <div class="menu-item"><span>½ አገልግል</span><span>400 ብር</span></div>
+            <div class="menu-item"><span>ፉል</span><span>170 ብር</span></div>
+          </div>
+
+          <div class="category-heading mt-7">
+            <span>መጠጦች</span>
+            <button aria-label="Drinks category">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
+                <path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+
+          <div id="drinksMenu" class="menu-list">
+            <div class="menu-item"><span>ለስላሳ</span><span>60 ብር</span></div>
+            <div class="menu-item"><span>ውሃ 2ሊትር</span><span>70 ብር</span></div>
+            <div class="menu-item"><span>ውሃ 1ሊትር</span><span>50 ብር</span></div>
+            <div class="menu-item"><span>ውሃ 1/2ሊትር</span><span>40 ብር</span></div>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
