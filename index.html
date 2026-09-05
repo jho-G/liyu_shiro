@@ -1,183 +1,143 @@
 <!DOCTYPE html>
 <html lang="am">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#4b2414">
-  <title>Food Menu | እንኳን ደህና መጡ</title>
-
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            coffee: "#4b2414",
-            orange: "#d95d1f",
-            cream: "#fffaf5"
-          },
-          fontFamily: {
-            amharic: ["Noto Sans Ethiopic", "Arial", "sans-serif"]
-          }
-        }
-      }
-    }
-  </script>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Ethiopic:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#2b160e">
+<title>ሊዩ ሽሮ | የምግብ ማውጫ</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config={theme:{extend:{fontFamily:{ethiopic:["Noto Sans Ethiopic","Arial","sans-serif"]},colors:{brown:"#2b160e",orange:"#d96a2b",cream:"#fff8f0"}}}};
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Ethiopic:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
+<body class="font-ethiopic bg-cream text-brown">
 
-<body class="bg-coffee text-white font-amharic">
-  <main class="min-h-screen overflow-hidden">
-    <!-- Decorative shapes -->
-    <div class="decor decor-one"></div>
-    <div class="decor decor-two"></div>
+<header class="hero relative min-h-[100svh] overflow-hidden">
+  <div class="hero-overlay absolute inset-0"></div>
+  <div class="relative z-10 flex min-h-[100svh] flex-col items-center justify-center px-6 text-center text-white">
+    <div class="hero-badge mb-6 rounded-full px-5 py-2 text-sm font-semibold">የባህላዊ ኢትዮጵያዊ ምግቦች</div>
+    <p class="mb-3 text-lg font-medium sm:text-2xl">እንኳን ደህና መጡ</p>
+    <h1 class="text-5xl font-black leading-tight drop-shadow-2xl sm:text-7xl md:text-8xl">ወደ ሊዩ ሽሮ</h1>
+    <p class="mt-5 max-w-xl text-base leading-8 text-white/90 sm:text-lg">ጣፋጭ፣ ትኩስ እና በፍቅር የተዘጋጁ የኢትዮጵያ ምግቦች</p>
+    <a href="#menu" class="mt-10 inline-flex items-center gap-3 rounded-full bg-orange px-7 py-4 font-bold shadow-2xl transition hover:-translate-y-1">
+      ማውጫውን ይመልከቱ
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 5v14m0 0 6-6m-6 6-6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+  <div class="absolute bottom-6 left-1/2 z-10 -translate-x-1/2 text-center text-white/80">
+    <div class="mx-auto mb-2 h-10 w-px bg-white/50"></div><span class="text-xs">ወደ ታች ይሸብልሉ</span>
+  </div>
+</header>
 
-    <!-- Header -->
-    <header class="relative z-10 px-5 pt-10 pb-5 sm:px-8 lg:px-12">
-      <div class="mx-auto max-w-7xl text-center">
-        <p class="mb-2 text-sm font-semibold tracking-[0.35em] text-orange-200 uppercase">
-          እንኳን ደህና መጡ
-        </p>
-        <h1 class="menu-title font-black uppercase">FOOD MENU</h1>
-        <p class="mt-2 text-lg sm:text-2xl font-semibold">እንኳን ደህና መጡ</p>
-      </div>
-    </header>
+<main id="menu">
+<div class="mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-20 lg:px-12">
+  <section class="mb-12 text-center">
+    <p class="mb-3 text-sm font-bold uppercase tracking-[0.3em] text-orange">LIYU SHIRO</p>
+    <h2 class="text-4xl font-black sm:text-5xl">የምግብ ማውጫ</h2>
+    <div class="mx-auto mt-5 h-1 w-16 rounded-full bg-orange"></div>
+  </section>
 
-    <!-- Main -->
-    <section class="relative z-10 mx-auto max-w-7xl px-5 pb-12 sm:px-8 lg:px-12">
-      <!-- Mobile controls -->
-      <div class="mb-6 flex flex-col gap-3 md:hidden">
-        <button id="mobileCategoryBtn"
-          class="flex items-center justify-between rounded-2xl bg-orange px-5 py-4 text-lg font-bold shadow-lg">
-          <span id="mobileCategoryLabel">ምግቦች</span>
-          <span class="rounded-xl bg-white p-2 text-coffee">
-            <svg id="mobileChevron" width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </span>
-        </button>
+  <nav class="sticky top-3 z-30 mb-10 flex justify-center">
+    <div class="flex max-w-full gap-2 overflow-x-auto rounded-full border border-black/5 bg-white/90 p-2 shadow-lg backdrop-blur-md">
+      <button class="filter-btn active" data-filter="all">ሁሉም</button>
+      <button class="filter-btn" data-filter="food">ምግቦች</button>
+      <button class="filter-btn" data-filter="drinks">መጠጦች</button>
+    </div>
+  </nav>
 
-        <div id="mobileCategoryMenu" class="hidden rounded-2xl bg-white p-2 text-coffee shadow-xl">
-          <button class="category-btn active" data-category="food">ምግቦች</button>
-          <button class="category-btn" data-category="drinks">መጠጦች</button>
-        </div>
-      </div>
+  <section class="menu-section" data-section="food">
+    <div class="mb-7"><p class="text-sm font-bold text-orange">TRADITIONAL FOOD</p><h3 class="mt-1 text-3xl font-black sm:text-4xl">ምግቦች</h3></div>
+    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+<article class="menu-card" data-category="food">
+<img src="assets/food-1.jpeg" alt="ቲማቲም" loading="lazy">
+<div class="menu-card-body"><div class="flex items-start justify-between gap-3"><h4>ቲማቲም</h4><span class="price">250 ብር</span></div></div>
+</article><article class="menu-card" data-category="food">
+<img src="assets/food-2.jpeg" alt="ድንች ወጥ" loading="lazy">
+<div class="menu-card-body"><div class="flex items-start justify-between gap-3"><h4>ድንች ወጥ</h4><span class="price">250 ብር</span></div><p>ዘውትር ረቡዕ</p></div>
+</article><article class="menu-card" data-category="food">
+<img src="assets/food-1.jpeg" alt="ዳቦ ፍርፍር" loading="lazy">
+<div class="menu-card-body"><div class="flex items-start justify-between gap-3"><h4>ዳቦ ፍርፍር</h4><span class="price">180 ብር</span></div></div>
+</article><article class="menu-card" data-category="food">
+<img src="assets/food-2.jpeg" alt="ፍርፍር" loading="lazy">
+<div class="menu-card-body"><div class="flex items-start justify-between gap-3"><h4>ፍርፍር</h4><span class="price">250 ብር</span></div></div>
+</article><article class="menu-card" data-category="food">
+<img src="assets/food-1.jpeg" alt="ድርቆሽ ፍርፍር" loading="lazy">
+<div class="menu-card-body"><div class="flex items-start justify-between gap-3"><h4>ድርቆሽ ፍርፍር</h4><span class="price">290 ብር</span></div></div>
+</article><article class="menu-card" data-category="food">
+<img src="assets/food-2.jpeg" alt="አገልግል. ሙሉ" loading="lazy">
+<div class="menu-card-body"><div class="flex items-start justify-between gap-3"><h4>አገልግል. ሙሉ</h4><span class="price">550 ብር</span></div></div>
+</article><article class="menu-card" data-category="food">
+<img src="assets/food-1.jpeg" alt="½ አገልግል" loading="lazy">
+<div class="menu-card-body"><div class="flex items-start justify-between gap-3"><h4>½ አገልግል</h4><span class="price">400 ብር</span></div></div>
+</article><article class="menu-card" data-category="food">
+<img src="assets/food-2.jpeg" alt="ፉል" loading="lazy">
+<div class="menu-card-body"><div class="flex items-start justify-between gap-3"><h4>ፉል</h4><span class="price">170 ብር</span></div></div>
+</article><article class="menu-card" data-category="food">
+<img src="assets/food-1.jpeg" alt="በየአይነት" loading="lazy">
+<div class="menu-card-body"><div class="flex items-start justify-between gap-3"><h4>በየአይነት</h4><span class="price">290 ብር</span></div></div>
+</article><article class="menu-card" data-category="food">
+<img src="assets/food-2.jpeg" alt="ሽሮ" loading="lazy">
+<div class="menu-card-body"><div class="flex items-start justify-between gap-3"><h4>ሽሮ</h4><span class="price">250 ብር</span></div></div>
+</article><article class="menu-card" data-category="food">
+<img src="assets/food-1.jpeg" alt="ስፔሻል ሽሮ" loading="lazy">
+<div class="menu-card-body"><div class="flex items-start justify-between gap-3"><h4>ስፔሻል ሽሮ</h4><span class="price">290 ብር</span></div></div>
+</article><article class="menu-card" data-category="food">
+<img src="assets/food-2.jpeg" alt="ተጋቢኖ" loading="lazy">
+<div class="menu-card-body"><div class="flex items-start justify-between gap-3"><h4>ተጋቢኖ</h4><span class="price">290 ብር</span></div></div>
+</article><article class="menu-card" data-category="food">
+<img src="assets/food-1.jpeg" alt="ፓስታ በስጎ" loading="lazy">
+<div class="menu-card-body"><div class="flex items-start justify-between gap-3"><h4>ፓስታ በስጎ</h4><span class="price">270 ብር</span></div></div>
+</article><article class="menu-card" data-category="food">
+<img src="assets/food-2.jpeg" alt="ፓስታ በአትክልት" loading="lazy">
+<div class="menu-card-body"><div class="flex items-start justify-between gap-3"><h4>ፓስታ በአትክልት</h4><span class="price">290 ብር</span></div></div>
+</article><article class="menu-card" data-category="food">
+<img src="assets/food-1.jpeg" alt="ስፔሻል ፓስታ" loading="lazy">
+<div class="menu-card-body"><div class="flex items-start justify-between gap-3"><h4>ስፔሻል ፓስታ</h4><span class="price">370 ብር</span></div></div>
+</article><article class="menu-card" data-category="food">
+<img src="assets/food-2.jpeg" alt="ተልባ ፍትፍት" loading="lazy">
+<div class="menu-card-body"><div class="flex items-start justify-between gap-3"><h4>ተልባ ፍትፍት</h4><span class="price">290 ብር</span></div></div>
+</article><article class="menu-card" data-category="food">
+<img src="assets/food-1.jpeg" alt="ሱፍ ፍትፍት" loading="lazy">
+<div class="menu-card-body"><div class="flex items-start justify-between gap-3"><h4>ሱፍ ፍትፍት</h4><span class="price">290 ብር</span></div></div>
+</article><article class="menu-card" data-category="food">
+<img src="assets/food-2.jpeg" alt="ሀፍሀፍ" loading="lazy">
+<div class="menu-card-body"><div class="flex items-start justify-between gap-3"><h4>ሀፍሀፍ</h4><span class="price">290 ብር</span></div></div>
+</article>
+    </div>
+  </section>
 
-      <div class="grid items-start gap-8 lg:grid-cols-[1fr_0.82fr_1fr]">
+  <section class="menu-section mt-20" data-section="drinks">
+    <div class="mb-7"><p class="text-sm font-bold text-orange">DRINKS</p><h3 class="mt-1 text-3xl font-black sm:text-4xl">መጠጦች</h3></div>
+    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+<article class="menu-card" data-category="drinks">
+<img src="assets/food-1.jpeg" alt="ለስላሳ" loading="lazy">
+<div class="menu-card-body"><div class="flex items-start justify-between gap-2"><h4>ለስላሳ</h4><span class="price">60 ብር</span></div></div>
+</article><article class="menu-card" data-category="drinks">
+<img src="assets/food-2.jpeg" alt="ውሃ 2ሊትር" loading="lazy">
+<div class="menu-card-body"><div class="flex items-start justify-between gap-2"><h4>ውሃ 2ሊትር</h4><span class="price">70 ብር</span></div></div>
+</article><article class="menu-card" data-category="drinks">
+<img src="assets/food-1.jpeg" alt="ውሃ 1ሊትር" loading="lazy">
+<div class="menu-card-body"><div class="flex items-start justify-between gap-2"><h4>ውሃ 1ሊትር</h4><span class="price">50 ብር</span></div></div>
+</article><article class="menu-card" data-category="drinks">
+<img src="assets/food-2.jpeg" alt="ውሃ 1/2ሊትር" loading="lazy">
+<div class="menu-card-body"><div class="flex items-start justify-between gap-2"><h4>ውሃ 1/2ሊትር</h4><span class="price">40 ብር</span></div></div>
+</article>
+    </div>
+  </section>
 
-        <!-- LEFT MENU -->
-        <section class="order-2 lg:order-1">
-          <div class="category-heading hidden md:flex">
-            <span>ምግቦች</span>
-            <button aria-label="Food category">
-              <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
-                <path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </button>
-          </div>
+  <section class="mt-16 overflow-hidden rounded-[2rem] bg-brown px-6 py-10 text-center text-white shadow-2xl sm:px-10">
+    <p class="text-sm font-semibold text-orange-200">ማዘዝ ይፈልጋሉ?</p>
+    <h3 class="mt-2 text-2xl font-black sm:text-3xl">በስልክ ይደውሉልን</h3>
+    <a href="tel:0960174018" class="mt-6 inline-flex rounded-full bg-orange px-7 py-4 text-xl font-bold transition hover:-translate-y-1">0960-17-40-18</a>
+  </section>
+</div>
+</main>
 
-          <div id="foodMenu" class="menu-list">
-            <!-- First food group -->
-            <article class="menu-group">
-              <div class="menu-item"><span>ቲማቲም</span><span>250 ብር</span></div>
-              <div class="menu-item"><span>ድንች ወጥ(ዘውትር ረቡዕ)</span><span>250 ብር</span></div>
-              <div class="menu-item"><span>ዳቦ ፍርፍር</span><span>180 ብር</span></div>
-              <div class="menu-item"><span>ፍርፍር</span><span>250 ብር</span></div>
-              <div class="menu-item"><span>ድርቆሽ ፍርፍር</span><span>290 ብር</span></div>
-              <div class="menu-item"><span>አገልግል. ሙሉ</span><span>550 ብር</span></div>
-              <div class="menu-item"><span>½ አገልግል</span><span>400 ብር</span></div>
-              <div class="menu-item"><span>ፉል</span><span>170 ብር</span></div>
-            </article>
-
-            <!-- Second food group -->
-            <article class="menu-group mt-7">
-              <div class="menu-item"><span>በየአይነት</span><span>290 ብር</span></div>
-              <div class="menu-item"><span>ሽሮ</span><span>250 ብር</span></div>
-              <div class="menu-item"><span>ስፔሻል ሽሮ</span><span>290 ብር</span></div>
-              <div class="menu-item"><span>ተጋቢኖ</span><span>290 ብር</span></div>
-              <div class="menu-item"><span>ፓስታ በስጎ</span><span>270 ብር</span></div>
-              <div class="menu-item"><span>ፓስታ በአትክልት</span><span>290 ብር</span></div>
-              <div class="menu-item"><span>ስፔሻል ፓስታ</span><span>370 ብር</span></div>
-              <div class="menu-item"><span>ተልባ ፍትፍት</span><span>290 ብር</span></div>
-              <div class="menu-item"><span>ሱፍ ፍትፍት</span><span>290 ብር</span></div>
-              <div class="menu-item"><span>ሀፍሀፍ</span><span>290 ብር</span></div>
-            </article>
-          </div>
-        </section>
-
-        <!-- CENTER IMAGES / CTA -->
-        <section class="order-1 flex flex-col items-center lg:order-2">
-          <div class="food-image-wrap">
-            <img src="assets/food-1.jpeg" alt="Food from the menu" class="food-image">
-          </div>
-
-          <div class="food-image-wrap mt-5">
-            <img src="assets/food-2.jpeg" alt="Food from the menu" class="food-image">
-          </div>
-
-          <a href="tel:0960174018"
-             class="call-card mt-5 w-full max-w-md transition hover:-translate-y-1">
-            <div class="call-top">
-              <span class="call-icon">
-                <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
-                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 5.18 2 2 0 0 1 4.11 3h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.63a2 2 0 0 1-.45 2.11L8 10.73a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.85.29 1.73.5 2.63.62A2 2 0 0 1 22 16.92Z"
-                    stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </span>
-              <span class="text-2xl font-semibold tracking-wide">0960-17-40-18</span>
-            </div>
-            <p>ደውለው ማዘዝ ከፈለጉ</p>
-          </a>
-        </section>
-
-        <!-- RIGHT MENU -->
-        <section class="order-3">
-          <div class="category-heading">
-            <span>ምግቦች</span>
-            <button aria-label="Food category">
-              <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
-                <path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </button>
-          </div>
-
-          <div class="menu-list">
-            <div class="menu-item"><span>ቲማቲም</span><span>250 ብር</span></div>
-            <div class="menu-item"><span>ድንች ወጥ(ዘውትር ረቡዕ)</span><span>250 ብር</span></div>
-            <div class="menu-item"><span>ዳቦ ፍርፍር</span><span>180 ብር</span></div>
-            <div class="menu-item"><span>ፍርፍር</span><span>250 ብር</span></div>
-            <div class="menu-item"><span>ድርቆሽ ፍርፍር</span><span>290 ብር</span></div>
-            <div class="menu-item"><span>አገልግል. ሙሉ</span><span>550 ብር</span></div>
-            <div class="menu-item"><span>½ አገልግል</span><span>400 ብር</span></div>
-            <div class="menu-item"><span>ፉል</span><span>170 ብር</span></div>
-          </div>
-
-          <div class="category-heading mt-7">
-            <span>መጠጦች</span>
-            <button aria-label="Drinks category">
-              <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
-                <path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </button>
-          </div>
-
-          <div id="drinksMenu" class="menu-list">
-            <div class="menu-item"><span>ለስላሳ</span><span>60 ብር</span></div>
-            <div class="menu-item"><span>ውሃ 2ሊትር</span><span>70 ብር</span></div>
-            <div class="menu-item"><span>ውሃ 1ሊትር</span><span>50 ብር</span></div>
-            <div class="menu-item"><span>ውሃ 1/2ሊትር</span><span>40 ብር</span></div>
-          </div>
-        </section>
-      </div>
-    </section>
-  </main>
-
-  <script src="script.js"></script>
+<footer class="bg-[#1d0e09] px-5 py-7 text-center text-sm text-white/60">© ሊዩ ሽሮ · እንኳን ደህና መጡ</footer>
+<script src="script.js"></script>
 </body>
 </html>

@@ -1,54 +1,18 @@
-const mobileCategoryBtn = document.getElementById("mobileCategoryBtn");
-const mobileCategoryMenu = document.getElementById("mobileCategoryMenu");
-const mobileCategoryLabel = document.getElementById("mobileCategoryLabel");
-const mobileChevron = document.getElementById("mobileChevron");
-
-const categoryButtons = document.querySelectorAll(".category-btn");
-
-mobileCategoryBtn.addEventListener("click", () => {
-  const isHidden = mobileCategoryMenu.classList.toggle("hidden");
-
-  mobileChevron.style.transform = isHidden ? "rotate(0deg)" : "rotate(180deg)";
-  mobileChevron.style.transition = "transform 180ms ease";
-});
-
-categoryButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    categoryButtons.forEach((btn) => btn.classList.remove("active"));
-    button.classList.add("active");
-
-    mobileCategoryLabel.textContent = button.textContent.trim();
-    mobileCategoryMenu.classList.add("hidden");
-    mobileChevron.style.transform = "rotate(0deg)";
-
-    const category = button.dataset.category;
-
-    if (category === "drinks") {
-      document.getElementById("drinksMenu").scrollIntoView({
-        behavior: "smooth",
-        block: "center"
-      });
-    } else {
-      document.getElementById("foodMenu").scrollIntoView({
-        behavior: "smooth",
-        block: "center"
-      });
-    }
+const buttons=document.querySelectorAll('.filter-btn');
+const cards=document.querySelectorAll('.menu-card');
+const sections=document.querySelectorAll('.menu-section');
+buttons.forEach(button=>button.addEventListener('click',()=>{
+  const filter=button.dataset.filter;
+  buttons.forEach(b=>b.classList.remove('active'));
+  button.classList.add('active');
+  cards.forEach(card=>card.classList.toggle('is-hidden',filter!=='all'&&card.dataset.category!==filter));
+  sections.forEach(section=>section.classList.toggle('is-hidden',filter!=='all'&&section.dataset.section!==filter));
+}));
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(!entry.isIntersecting)return;
+    entry.target.animate([{opacity:0,transform:'translateY(22px)'},{opacity:1,transform:'translateY(0)'}],{duration:500,easing:'cubic-bezier(.2,.7,.2,1)',fill:'both'});
+    observer.unobserve(entry.target);
   });
-});
-
-// Simple entrance animation
-document.querySelectorAll(".menu-item, .food-image-wrap, .call-card").forEach((el, index) => {
-  el.animate(
-    [
-      { opacity: 0, transform: "translateY(8px)" },
-      { opacity: 1, transform: "translateY(0)" }
-    ],
-    {
-      duration: 450,
-      delay: Math.min(index * 25, 400),
-      easing: "ease-out",
-      fill: "both"
-    }
-  );
-});
+},{threshold:.08});
+cards.forEach(card=>observer.observe(card));
